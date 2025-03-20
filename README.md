@@ -83,5 +83,5 @@ API documentation available at: [http://127.0.0.1:8000/docs](http://127.0.0.1:80
 
 ## Author
 **Valeriy Abramov**
-- GitHub: [@abramov-dev](https://github.com/abramov-dev) 
+- GitHub: [@abramov-v](https://github.com/abramov-v) 
 - email: abramov.valeriy@hotmail.com
