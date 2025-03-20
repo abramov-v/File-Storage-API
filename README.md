@@ -81,18 +81,6 @@ API documentation available at: [http://127.0.0.1:8000/docs](http://127.0.0.1:80
 |--------|---------|-------------|
 | POST  | `/files/process/{file_name}` | Send file for processing |
 
-## Running with Docker Compose (for databases and Celery)
-
-To run PostgreSQL, Redis, MinIO, and Celery Worker:
-```bash
-docker-compose up -d --build
-```
-
-To stop all containers:
-```bash
-docker-compose down
-```
-
 ## Author
 **Valeriy Abramov**
 - GitHub: [@abramov-dev](https://github.com/abramov-dev) 
