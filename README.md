@@ -1,40 +1,40 @@
-# File Storage API
+# FastAPI File Storage Service with MinIO and Celery
 
 ## Overview
 This is a FastAPI-based file storage with MinIO for object storage and Celery for background task processing. It allows users to upload, process, and manage files via REST API.
 
 ## Features
-- File Upload: Store files in MinIO and record metadata in PostgreSQL.
-- Background Processing: Uses Celery to process uploaded files asynchronously.
-- User Authentication: Secure API with JWT-based authentication.
-- File Management: List, delete, and download files.
+- File upload (to MinIO, metadata saved in PostgreSQL)
+- Background processing (Celery with Redis)
+- JWT authentication (secure endpoints)
+- File management (list, delete, presigned download URLs)
 
 
 ## Installation & Setup
-### Clone the repository
+1. Clone the repository
 ```bash
 git clone https://github.com/yourusername/fastapi-file-storage.git
 cd fastapi-file-storage
 ```
 
-### Create & activate a virtual environment
+2. Create & activate a virtual environment
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
 ```
 
-### Install dependencies
+3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Configure environment variables
+4. Configure environment variables
 Create `.env` file in the root directory and set the following variables:
 ```
 SECRET_KEY=secretkey
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
-MINIO_ENDPOINT=http://127.0.0.1:9000
+MINIO_ENDPOINT=127.0.0.1:9000
 MINIO_ACCESS_KEY=admin
 MINIO_SECRET_KEY=admin123
 MINIO_BUCKET=file-storage
@@ -42,23 +42,33 @@ DATABASE_URL=postgresql+asyncpg://fastapi:fastapi@localhost/files_db
 REDIS_URL=redis://localhost:6379/0
 ```
 
-### Start PostgreSQL, Redis, Celery, and MinIO using Docker Compose
+5. Start PostgreSQL, Redis, Celery, and MinIO using Docker Compose
 ```bash
 docker-compose up -d --build
 ```
 
 
-### Run database migrations
+6. Run database migrations
 Before starting FastAPI, run database migrations:
 ```bash
 alembic upgrade head
 ```
 
-### Start FastAPI server
+7. Start FastAPI server
 ```bash
 uvicorn main:app --reload
 ```
 API documentation available at: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
+
+## Technologies Used :
+- **FastAPI**
+- **PostgreSQL**
+- **MinIO**
+- **Celery + Redis**
+- **Docker & Docker Compose**
+- **Alembic** (migrations)
+- **JWT Auth (via PyJWT or similar)**
 
 
 ## API Endpoints
