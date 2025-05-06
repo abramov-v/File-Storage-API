@@ -24,4 +24,4 @@ app.include_router(file_router, prefix="/files", tags=["File Management"])
 
 @app.get("/")
 def root():
-    return {"message": "service is working"}
+    return {"message": "service is running"}
