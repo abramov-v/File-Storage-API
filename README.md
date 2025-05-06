@@ -29,16 +29,30 @@ pip install -r requirements.txt
 ```
 
 4. Configure environment variables
-Create `.env` file in the root directory and set the following variables:
+Copy the provided `.env.example` file and rename it to `.env`.
+
+Then edit `.env` and replace placeholder values:
 ```
-SECRET_KEY=secretkey
+# SECURITY WARNING!
+# 1. Rename this to .env
+# 2. Never commit real keys
+
+# Django / FastAPI settings
+SECRET_KEY=your_secret_key
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
-MINIO_ENDPOINT=127.0.0.1:9000
-MINIO_ACCESS_KEY=admin
-MINIO_SECRET_KEY=admin123
-MINIO_BUCKET=file-storage
+
+# MinIO settings (object storage)
+MINIO_ENDPOINT=127.0.0.1:9000             # MinIO host and port
+MINIO_ACCESS_KEY=admin                    # MinIO username
+MINIO_SECRET_KEY=admin123                 # MinIO password
+MINIO_BUCKET=file-storage                 # Bucket name for file uploads
+
+# PostgreSQL database (via asyncpg driver for SQLAlchemy)
 DATABASE_URL=postgresql+asyncpg://fastapi:fastapi@localhost/files_db
+# Format: postgresql+asyncpg://<user>:<password>@<host>/<database>
+
+# Redis (for background tasks with Celery)
 REDIS_URL=redis://localhost:6379/0
 ```
 
