@@ -28,8 +28,8 @@ source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Configure environment variables
-Copy the provided `.env.example` file and rename it to `.env`.
+4. Configure environment variables.
+Copy the provided `.env.example` and rename it to `.env`.
 
 Then edit `.env` and replace placeholder values:
 ```
