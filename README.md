@@ -61,7 +61,7 @@ uvicorn main:app --reload
 API documentation available at: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
 
-## Technologies Used :
+## Tech stack
 - **FastAPI**
 - **PostgreSQL**
 - **MinIO**
